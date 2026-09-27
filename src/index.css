@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/opendyslexic@0.1.5/dist/opendyslexic-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/opendyslexic@0.1.5/dist/opendyslexic-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-dyslexia {
+  font-family: 'OpenDyslexic', 'Lexend', 'Comic Sans MS', sans-serif !important;
+  letter-spacing: 0.035em !important;
+  word-spacing: 0.06em !important;
+  line-height: 1.7 !important;
+}

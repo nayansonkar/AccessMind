@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
+/* Dyslexia Typography */
+body.accessmind-dyslexia,
+body.accessmind-dyslexia *,
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia,
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia * {
+  font-family: "OpenDyslexic", "Lexend", "Comic Sans MS", -apple-system, sans-serif !important;
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.85 !important;
+}
+
+/* Color / Sepia Tint */
+html.accessmind-tint,
+body.accessmind-tint {
+  background-color: #fdf6e3 !important;
+}
+body.accessmind-tint * {
+  background-color: transparent !important;
+  color: #1a1a1a !important;
+}
+
+/* Screen Tint Multiplier Overlay (works across PDFs, embeds, canvases, and web pages) */
+#accessmind-screen-tint {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 2147483640 !important;
+  background-color: #f6ecdc !important;
+  mix-blend-mode: multiply !important;
+  opacity: 0.75 !important;
+  transition: opacity 0.25s ease !important;
+}
+
+#accessmind-screen-tint.accessmind-tint-screen-hidden {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Interactive Floating Line Ruler (tracks mouse/cursor across web & PDF) */
+#accessmind-reading-ruler {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 2147483642 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+#accessmind-reading-ruler.accessmind-ruler-hidden {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+.accessmind-ruler-top-mask {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+  pointer-events: none !important;
+  transition: height 0.02s linear !important;
+}
+
+.accessmind-ruler-bottom-mask {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+  pointer-events: none !important;
+}
+
+.accessmind-ruler-guide-band {
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 48px !important;
+  pointer-events: none !important;
+  background: rgba(99, 102, 241, 0.14) !important;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25) !important;
+  transition: top 0.02s linear !important;
+}
+
+.accessmind-ruler-line {
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: #6366f1 !important;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.8) !important;
+}
+
+.accessmind-ruler-line-top {
+  top: 0 !important;
+}
+
+.accessmind-ruler-line-bottom {
+  bottom: 0 !important;
+}
+
+/* Bionic bold roots */
+.accessmind-bionic-bold {
+  font-weight: 800 !important;
+  color: inherit !important;
+}
+.accessmind-highlight {
+  background-color: rgba(255, 255, 0, 0.4) !important;
+  outline: 2px solid #eab308 !important;
+  border-radius: 2px;
+}
+body.accessmind-reading-active {
+  box-shadow: inset 0 0 0 4px #eab308 !important;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Alternate Lines highlighting */
+body.accessmind-alternate-lines p,
+body.accessmind-alternate-lines li,
+body.accessmind-alternate-lines h1,
+body.accessmind-alternate-lines h2,
+body.accessmind-alternate-lines h3,
+body.accessmind-alternate-lines h4,
+body.accessmind-alternate-lines h5,
+body.accessmind-alternate-lines h6,
+body.accessmind-alternate-lines td,
+body.accessmind-alternate-lines blockquote,
+.accessmind-pdf-content.accessmind-alternate-lines .accessmind-pdf-para:nth-child(even),
+#accessmind-pdf-body.accessmind-alternate-lines .accessmind-pdf-para:nth-child(even) {
+   line-height: 1.65 !important;
+   background-image: repeating-linear-gradient(
+      rgba(100, 150, 255, 0.15) 0,
+      rgba(100, 150, 255, 0.15) 1.65em,
+      transparent 1.65em,
+      transparent 3.3em
+   ) !important;
+   background-size: 100% 3.3em !important;
+   background-position: top left !important;
+   background-origin: content-box !important;
+   border-radius: 0 !important;
+   background-color: transparent !important;
+}
+
+/* AccessMind Voice HUD & Notifications */
+#accessmind-voice-hud {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(0) !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 20px !important;
+  background: rgba(15, 23, 42, 0.92) !important;
+  color: #f8fafc !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+#accessmind-voice-hud.hud-hidden {
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(16px) !important;
+  visibility: hidden !important;
+}
+
+.accessmind-pulse-mic {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #ef4444 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7) !important;
+  animation: accessmind-pulse 1.4s infinite cubic-bezier(0.66, 0, 0, 1) !important;
+}
+
+@keyframes accessmind-pulse {
+  to {
+    box-shadow: 0 0 0 14px rgba(239, 68, 68, 0);
+  }
+}
+
+#accessmind-toast {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  z-index: 2147483647 !important;
+  padding: 10px 18px !important;
+  background: rgba(15, 23, 42, 0.94) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+#accessmind-toast.toast-hidden {
+  opacity: 0 !important;
+  transform: translateY(-10px) !important;
+  visibility: hidden !important;
+}
+
+/* Quick Floating Bar */
+#accessmind-quick-bar {
+  position: fixed !important;
+  top: 16px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483646 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 10px !important;
+  background: rgba(15, 23, 42, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  transition: all 0.25s ease !important;
+}
+
+#accessmind-quick-bar.bar-hidden {
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(-20px) !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.accessmind-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+  color: #f1f5f9 !important;
+  padding: 6px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: background 0.15s ease, transform 0.1s ease !important;
+}
+
+.accessmind-btn:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  transform: translateY(-1px) !important;
+}
+
+.accessmind-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* PDF Embed Enhancements & Full Viewport Tint Overlay */
+#accessmind-tint-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: #f6ecdc !important;
+  mix-blend-mode: multiply !important;
+  pointer-events: none !important;
+  z-index: 2147483640 !important;
+  opacity: 0.82 !important;
+  transition: opacity 0.25s ease !important;
+}
+
+#accessmind-tint-overlay.tint-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.accessmind-tint embed,
+body.accessmind-tint object,
+body.accessmind-tint iframe {
+  filter: sepia(0.55) contrast(0.95) !important;
+}
+
+/* Interactive Cursor Reading Ruler Bar */
+#accessmind-reading-ruler-bar {
+  position: fixed !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 48px !important;
+  pointer-events: none !important;
+  z-index: 2147483642 !important;
+  box-sizing: border-box !important;
+  transition: opacity 0.2s ease, top 0.04s ease-out !important;
+}
+
+#accessmind-reading-ruler-bar.ruler-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.accessmind-ruler-focus {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  border-top: 2px solid rgba(99, 102, 241, 0.65) !important;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.65) !important;
+  box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Alternate Lines on PDF & Webpage Paragraphs */
+body.accessmind-alternate-lines p,
+body.accessmind-alternate-lines li,
+.accessmind-pdf-content.accessmind-alternate-lines .accessmind-pdf-para:nth-child(even),
+#accessmind-pdf-overlay.accessmind-overlay-ruler .accessmind-pdf-para:nth-child(even) {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  border-radius: 4px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint.accessmind-overlay-ruler .accessmind-pdf-para:nth-child(even) {
+  background-color: rgba(180, 140, 70, 0.14) !important;
+}
+
+/* PDF Accessible Text Overlay */
+#accessmind-pdf-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 52% !important;
+  max-width: 720px !important;
+  min-width: 380px !important;
+  background: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35) !important;
+  z-index: 2147483645 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.25s ease !important;
+}
+
+#accessmind-pdf-overlay.pdf-overlay-hidden {
+  transform: translateX(105%) !important;
+  pointer-events: none !important;
+}
+
+#accessmind-pdf-overlay.pdf-overlay-expanded {
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint {
+  background: #fdf6e3 !important;
+  color: #2c2518 !important;
+  border-left: 1px solid #ebd9b8 !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-header {
+  background: #f4ebd4 !important;
+  border-bottom: 1px solid #e2d2b0 !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-page-divider {
+  background: #ede0c6 !important;
+  color: #634d28 !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia,
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia .accessmind-pdf-content,
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia .accessmind-pdf-para,
+#accessmind-pdf-overlay.accessmind-overlay-dyslexia p {
+  font-family: "OpenDyslexic", "Lexend", "Comic Sans MS", -apple-system, sans-serif !important;
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.08em !important;
+  line-height: 1.85 !important;
+}
+
+.accessmind-pdf-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background: rgba(248, 250, 252, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.accessmind-pdf-content {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  padding: 24px 28px !important;
+  line-height: 1.75 !important;
+  font-size: 16px !important;
+  word-break: break-word !important;
+}
+
+.accessmind-pdf-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  background: #e0e7ff !important;
+  color: #4338ca !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+}
+
+/* Authentic PDF Document Page Sheet Styling */
+.accessmind-pdf-sheet {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  padding: 32px 36px !important;
+  margin-bottom: 32px !important;
+  position: relative !important;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-sheet {
+  background: #fdf6e3 !important;
+  color: #2c2518 !important;
+  border-color: #ebd9b8 !important;
+  box-shadow: 0 4px 16px rgba(180, 140, 70, 0.12) !important;
+}
+
+.accessmind-pdf-sheet-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1.5px solid #e2e8f0 !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 20px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-sheet-header {
+  border-bottom-color: #ebd9b8 !important;
+  color: #8c734b !important;
+}
+
+.accessmind-pdf-title {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+  color: #0f172a !important;
+  margin-bottom: 14px !important;
+  letter-spacing: -0.01em !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-title {
+  color: #241c10 !important;
+}
+
+.accessmind-pdf-heading {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  margin-top: 18px !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 4px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-heading {
+  color: #45351a !important;
+  border-bottom-color: rgba(180, 140, 70, 0.2) !important;
+}
+
+.accessmind-pdf-bullet-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+  padding-left: 6px !important;
+  line-height: 1.7 !important;
+}
+
+.accessmind-bullet-dot {
+  color: #6366f1 !important;
+  font-weight: 900 !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  margin-top: 4px !important;
+}
+
+.accessmind-pdf-sheet-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 8px !important;
+  margin-top: 24px !important;
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+}
+
+#accessmind-pdf-overlay.accessmind-overlay-tint .accessmind-pdf-sheet-footer {
+  border-top-color: #ebd9b8 !important;
+  color: #a38c67 !important;
+}
+
+.accessmind-pdf-page-block {
+  margin-bottom: 28px !important;
+}
+
+.accessmind-pdf-page-divider {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: #6366f1 !important;
+  background: #f1f5f9 !important;
+  padding: 3px 9px !important;
+  border-radius: 6px !important;
+  margin-bottom: 12px !important;
+  display: inline-block !important;
+}
+
+.accessmind-pdf-para {
+  margin-bottom: 14px !important;
+  line-height: 1.8 !important;
+}
+
+.accessmind-btn-active {
+  background: #4338ca !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(67, 56, 202, 0.3) !important;
+}
+

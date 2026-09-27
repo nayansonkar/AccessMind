@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "AccessMind",
+  "version": "1.0",
+  "description": "Zero-friction accessibility: LLM intelligence, multi-modal reading, and hands-free voice control.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tts",
+    "offscreen",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["permission.html", "permission.js", "content.css", "pdf-extractor.bundle.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["pdf-extractor.bundle.js", "content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open AccessMind",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Open AccessMind Popup"
+    },
+    "read-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Read Page Aloud"
+    },
+    "toggle-voice": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "Command+Shift+V"
+      },
+      "description": "Toggle Voice Control"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AccessMind</title>
+    <meta name="description" content="AI-powered web accessibility assistant with zero-latency visual narration, hands-free voice push-to-talk, bionic reading, and dyslexia fonts." />
+    <meta property="og:title" content="AccessMind" />
+    <meta property="og:description" content="AI-powered web accessibility assistant with zero-latency visual narration, hands-free voice push-to-talk, bionic reading, and dyslexia fonts." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/icon48.png">
+    <style>
+      /* Enforce strict dimensions in Chrome extension popup so it never collapses to a tiny square */
+      html, body {
+        width: 360px;
+        min-height: 520px;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        overflow-x: hidden;
+      }
+      #root {
+        width: 360px;
+        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+      }
+      /* Expand full-screen when viewed as a web page preview */
+      html.web-preview, html.web-preview body {
+        width: 100% !important;
+        min-height: 100vh !important;
+        background-color: transparent !important;
+        overflow-x: auto !important;
+      }
+      html.web-preview #root {
+        width: 100% !important;
+        min-height: 100vh !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

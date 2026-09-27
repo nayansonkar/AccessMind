@@ -1,0 +1,6 @@
+{
+  "name": "AccessMind",
+  "description": "AI-powered web accessibility assistant with zero-latency visual narration, hands-free voice push-to-talk, bionic reading, and dyslexia fonts.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

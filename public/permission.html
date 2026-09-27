@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AccessMind - Enable Microphone Access</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: #ffffff;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 24px 0;
+    }
+    .btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .status {
+      margin-top: 20px;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: none;
+    }
+    .status.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+    .status.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171;
+    }
+    .note {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🎙️</div>
+    <h1>Enable Microphone for AccessMind</h1>
+    <p>
+      AccessMind uses your microphone strictly for <strong>hands-free Spacebar voice commands</strong>. Your speech is processed locally in real-time and is never recorded or stored.
+    </p>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+      <button id="enable-btn" class="btn">
+        <span>Allow Microphone Access</span>
+      </button>
+
+      <button id="manual-btn" style="background: transparent; border: 1px solid #475569; color: #94a3b8; padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer; transition: all 0.15s;">
+        Already allowed in Chrome settings? Continue
+      </button>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div id="test-box" style="display: none; margin-top: 20px; padding: 14px; background: rgba(30, 41, 59, 0.8); border: 1px solid #334155; border-radius: 10px; text-align: left;">
+      <div style="font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 600;">LIVE MIC TEST</div>
+      <div id="test-transcript" style="font-size: 14px; color: #38bdf8; min-height: 24px;">Say something to test (e.g. "read page")...</div>
+    </div>
+
+    <div class="note">
+      💡 Tip: If you don't see a browser prompt, click the <strong>tune / lock icon</strong> in the Chrome address bar, switch <strong>Microphone</strong> to <strong>Allow</strong>, then reload.
+    </div>
+  </div>
+
+  <script src="permission.js"></script>
+</body>
+</html>

@@ -1,11 +1,19 @@
-<div align="center">
+# AccessMind Chrome Extension
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+## How to Install and Test
 
-  <h1>Built with AI Studio</h2>
+1. Run `npm install` to install dependencies.
+2. Run `npm run build` to compile the extension.
+3. Open Google Chrome and navigate to `chrome://extensions`.
+4. Enable **Developer mode** in the top right corner.
+5. Click **Load unpacked** and select the `dist` folder (NOT the `public` folder).
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Troubleshooting
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **Error: The default_popup file in the manifest doesn't exist.**
+  - **Cause:** You loaded the `public` folder or the root folder instead of the `dist` folder.
+  - **Fix:** Make sure you run `npm run build` first, then select the `dist` folder when clicking "Load unpacked".
 
-</div>
+- **Error: Could not establish connection. Receiving end does not exist.**
+  - **Cause:** You tried to use the extension on a restricted Chrome page (like `chrome://extensions` or a New Tab page) where content scripts are not allowed to run.
+  - **Fix:** Navigate to a normal webpage (like wikipedia.org or google.com) and try again.
